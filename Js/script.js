@@ -40,6 +40,8 @@ function populateCards(person){
     <img class="card-img-top" src="`+person.url+`">
     <div class="card-body">
       <h5 class="card-title">`+person.name+`</h5>
+      <h3 class="card-title">Atualizado:`+person.updatedDate+`</h3>
+      <h3 class="card-title">Criado:`+person.createdate+`</h3>
        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal" onclick="updateModal(`+person.id+`)">
             Veja mais
         </button>
@@ -64,7 +66,7 @@ function updateModal(personID){
     document.getElementById("modalNumberAdress").value = person.numberAdress;
     document.getElementById("modalAdressComplement").value = person.adressComplement;
     document.getElementById("modalObs").value = person.obs;
-
+    document.getElementById("").value = person.updatedDate;
     
 }
 
@@ -85,7 +87,7 @@ function editPerson()
     person.numberAdress = document.getElementById("modalNumberAdress").value;
     person.adressComplement = document.getElementById("modalAdressComplement").value;
     person.obs = document.getElementById("modalObs").value
-    person.updateddate = new Date();
+    person.updatedDate = new Date();
     $("#exampleModal").modal("hide");
     container.innerHTML = "";
     People.forEach(populateCards);
@@ -110,10 +112,9 @@ function editPerson()
         numberAdress: document.getElementById("modalNumberAdressNew").value,
         adressComplement: document.getElementById("modalAdressComplementNew").value,
         obs: document.getElementById("modalObsNew").value,
-        updateddate:"",
+        updatedDate:"",
         createdate:new Date()
     });
-    
     container.innerHTML = "";
     createForm.reset();
     $("#exampleModalNew").modal("hide");
