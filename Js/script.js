@@ -48,8 +48,22 @@ function populateCards(person){
 function updateModal(personID){
     var person = People[personID -1]
     document.getElementById("personID").value = personID;
+    document.getElementById("modalPerfil").value = person.url;
     document.getElementById("modalPersonName").value = person.name;
     document.getElementById("modalPersonId").value = person.id;
+    document.getElementById("modalPersonCPF").value = person.CPF;
+    document.getElementById("modalPersonsurName").value = person.surName;
+    document.getElementById("modalPersonsurName").value = person.surName;
+    document.getElementById("modalPhone").value = person.phone;
+    document.getElementById("modalGenre").value = person.genre;
+    document.getElementById("modalState").value = person.state;
+    document.getElementById("modalDistrict").value = person.district;
+    document.getElementById("modalAdress").value = person.adress;
+    document.getElementById("modalNumberAdress").value = person.numberAdress;
+    document.getElementById("modalAdressComplement").value = person.adressComplement;
+    document.getElementById("modalObs").value = person.obs;
+
+    
 }
 
 function editPerson()

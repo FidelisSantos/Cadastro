@@ -14,7 +14,9 @@
 </head>
 <body>
     <header>
-    <a href="cadastrar.html">Cadastrar</a>
+      <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal" onclick="updateModal()">
+        Cadastrar
+    </button>
     </header>
     <h2>Pessoas Cadastradas</h2>
     <div id="people"></div>
@@ -28,58 +30,29 @@
                 <input type ="text"  id="modalPersonId" disabled ><br />
                
               <label id="Perfil" for="">Informa a URL da imagem que quer usar como perfil</label > 
-                <input type ="text"  placeholder ="ex:https://www.amazon.com.br/figs-inc-MEMER-meme-genorator/dp/B01NGTRHDD" ><br />
+                <input type ="text" id="modalPerfil" placeholder ="ex:https://www.amazon.com.br/figs-inc-MEMER-meme-genorator/dp/B01NGTRHDD" ><br />
                 <label id="name" for="">Nome:</label>
                 <input type="text" id="modalPersonName" placeholder="Digite seu nome completo" required /><br />
                 <label id="CPF" for="">Informe seu CPF:</label>
-                <input type="number"  placeholder="ex: 12345678912" class="form-control" required/><br />
+                <input type="number" id="modalPersonCPF"  placeholder="ex: 12345678912" class="form-control" required/><br />
                 <label id="surName" for="">Apelido:</label>
-                <input type="text"  placeholder="Digite seu Apelido" /><br />
+                <input type="text" id="modalPersonsurName" placeholder="Digite seu Apelido" /><br />
                 <label id="genre" for="">Genêro:</label>
-                <input type="radio" name="genre" checked value="M" /> Masculino
-                <input type="radio" name="genre" checked value="F" /> Feminino <br />
+                <input type="text" id="modalGenre" placeholder="ex: M ou F" /><br />
                 <label id="phone" for="">Informe seu Telefone:</label>
-                <input type="number" placeholder="Digite seu numero" class="form-control" required/><br />
+                <input type="number" id="modalPhone" placeholder="Digite seu numero" class="form-control" required/><br />
                 <label id="state" for="">Informe seu estado:</label>
-                <select name="state">
-                    <option value="AC">Acre</option>
-                    <option value="AL">Alagoas</option>
-                    <option value="AP">Amapá</option>
-                    <option value="BA">Bahia</option>
-                    <option value="CE">Ceará</option>
-                    <option value="DF">Distrito Federal</option>
-                    <option value="ES">Espirito Santo</option>
-                    <option value="GO">Goiás</option>
-                    <option value="MA">Maranhão</option>
-                    <option value="MT">Mato Grosso</option>
-                    <option value="MS">Mato Grosso do Sul</option>
-                    <option value="MG">Minas Gerais</option>
-                    <option value="PA">Pará</option>
-                    <option value="PB">Paraíba</option>
-                    <option value="PR">Paraná</option>
-                    <option value="PE">Pernambuco</option>
-                    <option value="PI">Piauí</option>
-                    <option value="RJ">Rio de Janeiro</option>
-                    <option value="RN">Rio Grande do Norte</option>
-                    <option value="RS">Rio Grande Sul</option>
-                    <option value="RO">Rondônia </option>
-                    <option value="RR">Roraima </option>
-                    <option value="SC">Santa Catarina </option>
-                    <option value="SP">São Paulo </option>
-                    <option value="SE">Sergipe </option>
-                    <option value="TO">Tocantins </option>
-                </select><br>
+                <input type="text" id="modalState" placeholder="Sigla ex: PR,SP..." required /><br />
                 <label id="district" for="">Informe seu Bairro:</label>
-                <input type="text" placeholder="Informe seu Bairro" required/><br />
+                <input type="text" id="modalDistrict" placeholder="Informe seu Bairro" required/><br />
                 <label id="adress" for="">Informe o logradouro:</label>
-                <input type="text" placeholder="Informe seu Bairro" required/><br />
-                <label id="numberAdress" for="">Informe o numero da casa:</label>
-                <input type="number" placeholder="Digite o numero da casa" class="form-control" /><br />
-                <label id="adressComplement" for="">Informe caso tenha complemento:</label>
-                <input type="text" placeholder="Informe o complemento" /><br />
+                <input type="text" id="modalAdress" placeholder="Informe seu logradouro" required/><br />
+                <label  for="">Informe o numero da casa:</label>
+                <input type="number" id="modalNumberAdress" placeholder="Digite o numero da casa" class="form-control" /><br />
+                <label  for="">Informe caso tenha complemento:</label>
+                <input type="text"id="modalAdressComplement" placeholder="Informe o complemento" /><br />
                 <label id="obs" for="">Informe caso tenha Observações:</label>
-                <input type="text" placeholder="Digite as Observações" /><br /><br>
-                <button id="btnSave" onclick="">Cadastrar</button>
+                <input type="text" id="modalObs" placeholder="Digite as Observações" /><br /><br>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">Deletar</button>
