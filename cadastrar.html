@@ -4,34 +4,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Cadastrar</title>
 </head>
+<script src="Js/script.js"></script>
 <body>
     <header><a href="index.html">Voltar</a></header>
     <h1>Cadastramento</h1>
-    <label id="Perfil" for="">Imagem de perfil:</label > 
-    <input type ="file" name ="image" ><br />
+    <label id="Perfil" for="">Informa a URL da imagem que quer usar como perfil</label > 
+    <input type ="text"  placeholder ="ex:https://www.amazon.com.br/figs-inc-MEMER-meme-genorator/dp/B01NGTRHDD" ><br />
     <label id="name" for="">Nome:</label>
-    <input type="text" placeholder="Digite seu nome completo" /><br />
+    <input type="text"  placeholder="Digite seu nome completo" required /><br />
     <label id="CPF" for="">Informe seu CPF:</label>
-    <input type="number" placeholder="ex: 12345678912" /><br />
+    <input type="number"  placeholder="ex: 12345678912" class="form-control" required/><br />
     <label id="surName" for="">Apelido:</label>
-    <input type="text" placeholder="Digite seu Apelido" /><br />
+    <input type="text"  placeholder="Digite seu Apelido" /><br />
     <label id="genre" for="">Genêro:</label>
-    <input type="text" placeholder="ex: M ou F" /><br />
+    <input type="radio" name="genre" checked value="M" /> Masculino
+    <input type="radio" name="genre" checked value="F" /> Feminino <br />
     <label id="phone" for="">Informe seu Telefone:</label>
-    <input type="number" placeholder="Digite seu numero" /><br />
+    <input type="number" placeholder="Digite seu numero" class="form-control" required/><br />
     <label id="state" for="">Informe seu estado:</label>
-    <input type="text" placeholder="ex: PR,SP..." /><br />
+    <select name="state">
+        <option value="AC">Acre</option>
+        <option value="AL">Alagoas</option>
+        <option value="AP">Amapá</option>
+        <option value="BA">Bahia</option>
+        <option value="CE">Ceará</option>
+        <option value="DF">Distrito Federal</option>
+        <option value="ES">Espirito Santo</option>
+        <option value="GO">Goiás</option>
+        <option value="MA">Maranhão</option>
+        <option value="MT">Mato Grosso</option>
+        <option value="MS">Mato Grosso do Sul</option>
+        <option value="MG">Minas Gerais</option>
+        <option value="PA">Pará</option>
+        <option value="PB">Paraíba</option>
+        <option value="PR">Paraná</option>
+        <option value="PE">Pernambuco</option>
+        <option value="PI">Piauí</option>
+        <option value="RJ">Rio de Janeiro</option>
+        <option value="RN">Rio Grande do Norte</option>
+        <option value="RS">Rio Grande Sul</option>
+        <option value="RO">Rondônia </option>
+        <option value="RR">Roraima </option>
+        <option value="SC">Santa Catarina </option>
+        <option value="SP">São Paulo </option>
+        <option value="SE">Sergipe </option>
+        <option value="TO">Tocantins </option>
+    </select><br>
     <label id="district" for="">Informe seu Bairro:</label>
-    <input type="text" placeholder="Digite seu Bairro" /><br />
+    <input type="text" placeholder="Informe seu Bairro" required/><br />
     <label id="adress" for="">Informe o logradouro:</label>
-    <input type="text" placeholder="Digite seu Bairro" /><br />
+    <input type="text" placeholder="Informe seu Bairro" required/><br />
     <label id="numberAdress" for="">Informe o numero da casa:</label>
-    <input type="number" placeholder="Digite o numero da casa" /><br />
+    <input type="number" placeholder="Digite o numero da casa" class="form-control" /><br />
     <label id="adressComplement" for="">Informe caso tenha complemento:</label>
-    <input type="text" placeholder="Digite o complemento" /><br />
+    <input type="text" placeholder="Informe o complemento" /><br />
     <label id="obs" for="">Informe caso tenha Observações:</label>
-    <input type="text" placeholder="Digite as Observações" /><br />
+    <input type="text" placeholder="Digite as Observações" /><br /><br>
+    <button id="btnSave" onclick="">Cadastrar</button>
+    <script src="Js/script.js"></script>
 </body>
 </html>
