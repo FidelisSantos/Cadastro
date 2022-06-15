@@ -42,7 +42,7 @@ function populateCards(person){
       <h5 class="card-title">`+person.name+`</h5>
       <h3 class="card-title">Atualizado:`+person.updatedDate+`</h3>
       <h3 class="card-title">Criado:`+person.createdate+`</h3>
-       <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal" onclick="updateModal(`+person.id+`)">
+       <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modalCard" onclick="updateModal(`+person.id+`)">
             Veja mais
         </button>
     </div>
@@ -88,7 +88,7 @@ function editPerson()
     person.adressComplement = document.getElementById("modalAdressComplement").value;
     person.obs = document.getElementById("modalObs").value
     person.updatedDate = new Date();
-    $("#exampleModal").modal("hide");
+    $("#modalCard").modal("hide");
     container.innerHTML = "";
     People.forEach(populateCards);
 }
@@ -117,7 +117,7 @@ function editPerson()
     });
     container.innerHTML = "";
     createForm.reset();
-    $("#exampleModalNew").modal("hide");
+    $("#modalNewCard").modal("hide");
     People.forEach(populateCards);
   }
 
