@@ -3,6 +3,19 @@ input[type=number]::-webkit-inner-spin-button,
         -webkit-appearance: none;
         margin: 0;
     }
-.add .remove{
- display: none;
+body{
+    background-color: rgb(64, 66, 66);
+}
+.ADD{
+    display: flex;
+  justify-content: right;
+  font-size: 10rem;
+  gap: 3rem;
+  text-decoration: none;
+  background-color: whitesmoke;
+  font-family: fantasy;
+  padding: 16px;
+}
+h2{
+    color: white;
 }

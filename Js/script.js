@@ -1,11 +1,15 @@
 const showDatabase = document.getElementsByClassName("card");
 const showAllInformationPeople = document.getElementsByClassName("modal-body");
 const showCardName = document.getElementsByClassName("modal fade");
+const article = document.getElementById("activeRemove");
 
-const People = [];
+
+let People = [];
 
 window.onload = function() {
+    const btnInsert = document.getElementById("btnInsert");
     addDefaultPerson();
+    btnInsert.addEventListener('click',insertPerson)
 }
 
 function addDefaultPerson() {
@@ -24,14 +28,14 @@ function addDefaultPerson() {
             numberAdress: "1715",
             adressComplement: "Casa 05",
             obs:"Testando",
-            updateddate:"",
+            updatedDate:"",
             createdate:new Date()
         });
 
     People.forEach(populateCards);
 }
 function populateCards(person){
-
+    const container = document.getElementById("people");
     let card =`<div class="card" style="width: 18rem;">
     <img class="card-img-top" src="`+person.url+`">
     <div class="card-body">
@@ -42,17 +46,15 @@ function populateCards(person){
     </div>
   </div>`
   
-    document.getElementById("people").innerHTML = card;
+    container.innerHTML += card;
 }
 
 function updateModal(personID){
     var person = People[personID -1]
-    document.getElementById("personID").value = personID;
+    document.getElementById("modalPersonId").value = personID;
     document.getElementById("modalPerfil").value = person.url;
     document.getElementById("modalPersonName").value = person.name;
-    document.getElementById("modalPersonId").value = person.id;
     document.getElementById("modalPersonCPF").value = person.CPF;
-    document.getElementById("modalPersonsurName").value = person.surName;
     document.getElementById("modalPersonsurName").value = person.surName;
     document.getElementById("modalPhone").value = person.phone;
     document.getElementById("modalGenre").value = person.genre;
@@ -68,22 +70,68 @@ function updateModal(personID){
 
 function editPerson()
 {
-    let id = document.getElementById("personID").value;
-    let person = People[id];
-
-    person.name = document.getElementById("personName").value;
-    person.cpf = document.getElementById("personCPF").value;
+    const container = document.getElementById("people");
+    let id = document.getElementById("modalPersonId").value;
+    let person = People[id - 1];
+    
+    person.name = document.getElementById("modalPersonName").value;
+    person.cpf = document.getElementById("modalPersonCPF").value;
+    person.surName = document.getElementById("modalPersonsurName").value;
+    person.phone = document.getElementById("modalPhone").value;
+    person.genre = document.getElementById("modalGenre").value;
+    person.state = document.getElementById("modalState").value;
+    person.district = document.getElementById("modalDistrict").value;
+    person.adress = document.getElementById("modalAdress").value;
+    person.numberAdress = document.getElementById("modalNumberAdress").value;
+    person.adressComplement = document.getElementById("modalAdressComplement").value;
+    person.obs = document.getElementById("modalObs").value
+    person.updateddate = new Date();
+    $("#exampleModal").modal("hide");
+    container.innerHTML = "";
+    People.forEach(populateCards);
 }
 
-  function insertItems() {
+  function insertPerson(e) {
+    e.preventDefault();
+    const createForm = document.getElementById("createForm");
+    const container = document.getElementById("people");
+    People.push(
+    {
+        id: People.length + 1,
+        url: document.getElementById("modalPerfilNew").value,
+        name: document.getElementById("modalPersonNameNew").value,
+        CPF: document.getElementById("modalPersonCPFNew").value,
+        surName: document.getElementById("modalPersonsurNameNew").value,
+        genre: document.getElementById("modalGenreNew").value,
+        phone: document.getElementById("modalPhoneNew").value,
+        state: document.getElementById("modalStateNew").value,
+        district: document.getElementById("modalDistrictNew").value,
+        adress: document.getElementById("modalAdressNew").value,
+        numberAdress: document.getElementById("modalNumberAdressNew").value,
+        adressComplement: document.getElementById("modalAdressComplementNew").value,
+        obs: document.getElementById("modalObsNew").value,
+        updateddate:"",
+        createdate:new Date()
+    });
+    
+    container.innerHTML = "";
+    createForm.reset();
+    $("#exampleModalNew").modal("hide");
+    People.forEach(populateCards);
+  }
 
-    var person = getPerson();
-
-    let tr = `
-    <tr>
-    <td>` + person.name +`</td>
-    <td>` + person.cpf +`</td>
-     </tr> 
-    `
-    document.getElementById("tabela").innerHTML = tr
+  function deletePerson()
+  {
+    const container = document.getElementById("people");
+    let id = document.getElementById("modalPersonId").value;
+    People.splice(id - 1,1) ;
+    console.log(People);
+    if(People.length){
+        container.innerHTML = "";
+        People.forEach(populateCards);
+    }
+    else{
+        container.innerHTML = "";
+    }
+    
   }

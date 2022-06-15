@@ -14,9 +14,48 @@
 </head>
 <body>
     <header>
-      <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal" onclick="updateModal()">
+      <div class="ADD">
+      <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalNew" onclick="">
         Cadastrar
     </button>
+      </div>
+    <div class="modal fade" id="exampleModalNew" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form id="createForm" action="">
+            <label id="Perfil" for="">Id</label > 
+              <input type ="text"  id="modalPersonIdNew" disabled ><br />
+            <label id="Perfil" for="">Informa a URL da imagem que quer usar como perfil</label > 
+              <input type ="text" id="modalPerfilNew" placeholder ="ex:https://www.amazon.com.br/figs-inc-MEMER-meme-genorator/dp/B01NGTRHDD" ><br />
+              <label id="name" for="">Nome:</label>
+              <input type="text" id="modalPersonNameNew" placeholder="Digite seu nome completo" required /><br />
+              <label id="CPF" for="">Informe seu CPF:</label>
+              <input type="number" id="modalPersonCPFNew"  placeholder="ex: 12345678912" class="form-control" required/><br />
+              <label id="surName" for="">Apelido:</label>
+              <input type="text" id="modalPersonsurNameNew" placeholder="Digite seu Apelido" /><br />
+              <label id="genre" for="">Genêro:</label>
+              <input type="text" id="modalGenreNew" placeholder="ex: M ou F" /><br />
+              <label id="phone" for="">Informe seu Telefone:</label>
+              <input type="number" id="modalPhoneNew" placeholder="Digite seu numero" class="form-control" required/><br />
+              <label id="state" for="">Informe seu estado:</label>
+              <input type="text" id="modalStateNew" placeholder="Sigla ex: PR,SP..." required /><br />
+              <label id="district" for="">Informe seu Bairro:</label>
+              <input type="text" id="modalDistrictNew" placeholder="Informe seu Bairro" required/><br />
+              <label id="adress" for="">Informe o logradouro:</label>
+              <input type="text" id="modalAdressNew" placeholder="Informe seu logradouro" required/><br />
+              <label  for="">Informe o numero da casa:</label>
+              <input type="number" id="modalNumberAdressNew" placeholder="Digite o numero da casa" class="form-control" /><br />
+              <label  for="">Informe caso tenha complemento:</label>
+              <input type="text"id="modalAdressComplementNew" placeholder="Informe o complemento" /><br />
+              <label id="obs" for="">Informe caso tenha Observações:</label>
+              <input type="text" id="modalObsNew" placeholder="Digite as Observações" /><br /><br>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="btnInsert" class="btn btn-primary" >Salvar</button>
+          </div>
+        </form>
+
     </header>
     <h2>Pessoas Cadastradas</h2>
     <div id="people"></div>
@@ -26,7 +65,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-body">
-              <label id="Perfil" for="">Id</label > 
+              <label  for="">Id</label > 
                 <input type ="text"  id="modalPersonId" disabled ><br />
                
               <label id="Perfil" for="">Informa a URL da imagem que quer usar como perfil</label > 
@@ -53,13 +92,11 @@
                 <input type="text"id="modalAdressComplement" placeholder="Informe o complemento" /><br />
                 <label id="obs" for="">Informe caso tenha Observações:</label>
                 <input type="text" id="modalObs" placeholder="Digite as Observações" /><br /><br>
+
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Deletar</button>
-              <button type="button" class="btn btn-primary">Salvar</button>
-            </div>
-            <div>
-              <input type="hidden" id="personID">
+              <button type="button" class="btn btn-danger" id="active" data-dismiss="modal" onclick="deletePerson()">Deletar</button>
+              <button type="button" class="btn btn-primary" onclick="editPerson()" >Salvar</button>
             </div>
           </div>
         </div>
